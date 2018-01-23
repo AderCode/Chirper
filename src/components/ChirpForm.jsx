@@ -1,25 +1,35 @@
 import React from "react";
 import Avatar from "./Avatar";
 
-class ChirpForm extends React.Component {
-    render() {
-    return (
-      <div className="card w-75 mx-auto mt-1">
-        <div className="card-header text-left">
-          <Avatar />
-          <div className="d-inline align-bottom ml-2">{this.props.name} chirped:</div>
+ const ChirpForm = (props) => {
+  
+
+  let listChirps = props.chirps.map((chirp) => {
+  
+  return (
+      <div className="card mt-1 mb-1">
+        <div className="text-left mt-2">
+          <div className="media ml-2">
+          <div className="d-inline">
+            <Avatar />
+            </div>
+            <div className="media-body ml-2 d-inline">
+              <h5 className="mt-0 d-inline mx-1">{chirp.name}</h5>
+              <h6 className="mt-0 d-inline mx-1 text-muted">@MatthewAderhold</h6>
+              <h6 className="mt-0 d-inline mx-1 text-muted">{chirp.timestamp}</h6>
+            </div>
+          </div>
         </div>
-        <div className="card-body text-left">
-          <blockquote className="blockquote mb-0">
-          <footer className="blockquote-footer">
-              <cite title="Source Title">{this.props.timestamp}</cite>
-            </footer>
-            {this.props.text}
-          </blockquote>
+        <div className="card-body text-left ml-5 pt-0">
+          {chirp.text}
         </div>
       </div>
-    );
-  }
+    )
+  });
+   return (
+     <div>{listChirps}</div>
+   )
 }
+
 
 export default ChirpForm;
