@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Trending extends Component {
   render() {
     return (
-      <div className="card mt-2">
+      <div className="card mt-2 mb-5">
         <div className="card-body text-left">
           <h5 className="card-title">Trends for you</h5>
           <p className="card-text">

@@ -3,7 +3,6 @@ import Avatar from "./Avatar";
 
  const ChirpForm = (props) => {
   
-
   let listChirps = props.chirps.map((chirp) => {
   
   return (

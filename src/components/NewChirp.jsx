@@ -1,25 +1,52 @@
 import React from "react";
-// import ChirpForm from './ChirpForm'
+import Avatar from "./Avatar";
+import ChirpForm from "./ChirpForm";
 
 class NewChirp extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
-      currentChirp: "",
-      chirps: []
+      chirps: [
+        {
+          name: "Aderhold",
+          text: "I'm not sure how to React...",
+          timestamp: "Jan 22",
+          key: 0
+        },
+        {
+          name: "Aderhold",
+          text: "They see me chirpin', they hatin'!",
+          timestamp: "Jan 22",
+          key: 1
+        },
+        {
+          name: "Aderhold",
+          text: "OMG, Becky! He's such a chirp. #LevelUp",
+          timestamp: "Jan 22",
+          key: 2
+        }
+      ]
     };
   }
 
   handleClick(event) {
-    const currentChirp = this.state.todo;
-    this.setState({ chirps: currentChirp.push(this.state.chirps) });
-    event.preventDefault();
+    let chirpsArray = this.state.chirps;
+    if (this._inputElement.value !== "") {chirpsArray.unshift({
+      name: "Aderhold",
+      text: this._inputElement.value,
+      timestamp: "1m",
+      key: Date.now()
+    });
+    this.setState({
+      chirps: chirpsArray
+    });
   }
-
-  handleChange(event) {
-    console.log(this.state.value);
-    this.setState();
+    this._inputElement.value = "";
+    event.preventDefault();
+    console.log(chirpsArray);
   }
 
   render() {
@@ -27,13 +54,13 @@ class NewChirp extends React.Component {
       <div className="col justify-content-lg-center border bg-white">
         <div className="form-group text-left">
           <h6 className="mt-3">
-            <label>Create a Chirp:</label>
+            <Avatar />
+            <label className="ml-2">Create a Chirp:</label>
           </h6>
-          <form onChange={this.handleChange}>
+          <form onSubmit={this.handleClick}>
             <input
               className="w-100"
-              value={this.state.value}
-              onChange={this.handleClick}
+              ref={a => (this._inputElement = a)}
               placeholder="What's happening?"
             />
             <div>
@@ -45,6 +72,7 @@ class NewChirp extends React.Component {
             </div>
           </form>
         </div>
+        <ChirpForm chirps={this.state.chirps} />
       </div>
     );
   }
