@@ -1,6 +1,6 @@
 import React from "react";
 import Avatar from "./Avatar";
-import ChirpForm from "./ChirpForm";
+import ChirpStyle from "./ChirpStyle";
 
 class NewChirp extends React.Component {
   constructor(props) {
@@ -34,16 +34,17 @@ class NewChirp extends React.Component {
 
   handleClick(event) {
     let chirpsArray = this.state.chirps;
-    if (this._inputElement.value !== "") {chirpsArray.unshift({
-      name: "Aderhold",
-      text: this._inputElement.value,
-      timestamp: "1m",
-      key: Date.now()
-    });
-    this.setState({
-      chirps: chirpsArray
-    });
-  }
+    if (this._inputElement.value !== "") {
+      chirpsArray.unshift({
+        name: "Aderhold",
+        text: this._inputElement.value,
+        timestamp: "1m",
+        key: Date.now()
+      });
+      this.setState({
+        chirps: chirpsArray
+      });
+    }
     this._inputElement.value = "";
     event.preventDefault();
     console.log(chirpsArray);
@@ -72,7 +73,7 @@ class NewChirp extends React.Component {
             </div>
           </form>
         </div>
-        <ChirpForm chirps={this.state.chirps} />
+        <ChirpStyle chirps={this.state.chirps} />
       </div>
     );
   }

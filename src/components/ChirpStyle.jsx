@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "./Avatar";
 
- const ChirpForm = (props) => {
+ const ChirpStyle = (props) => {
   
   let listChirps = props.chirps.map((chirp) => {
   
@@ -31,4 +31,4 @@ import Avatar from "./Avatar";
 }
 
 
-export default ChirpForm;
+export default ChirpStyle;
