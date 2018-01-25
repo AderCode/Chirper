@@ -6,7 +6,7 @@ import Avatar from "./Avatar";
   let listChirps = props.chirps.map((chirp) => {
   
   return (
-      <div className="card mt-1 mb-1">
+      <div key={chirp.key} className="card mt-1 mb-1">
         <div className="text-left mt-2">
           <div className="media ml-2">
           <div className="d-inline">
